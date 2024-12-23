@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Subject</title>
+</head>
+<body>
+    <h1>Edit Subject</h1>
+    <form method="post">
+        <label for="name">Subject Name:</label>
+        <input type="text" id="name" name="name" value="{{ subject[1] }}" required><br>
+
+        <label for="class_id">Class:</label>
+        <select id="class_id" name="class_id" required>
+            {% for class_id, class_name in classes %}
+                <option value="{{ class_id }}" {% if class_id == subject[2] %}selected{% endif %}>
+                    {{ class_name }}
+                </option>
+            {% endfor %}
+        </select><br>
+
+        <label for="teacher_id">Teacher:</label>
+        <select id="teacher_id" name="teacher_id" required>
+            {% for teacher_id, teacher_name in teachers %}
+                <option value="{{ teacher_id }}" {% if teacher_id == subject[3] %}selected{% endif %}>
+                    {{ teacher_name }}
+                </option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Update Subject</button>
+    </form>
+    <a href="/subjects">Back to Subjects</a>
+</body>
+</html>

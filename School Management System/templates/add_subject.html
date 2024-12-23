@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Subject</title>
+</head>
+<body>
+    <h1>Add Subject</h1>
+    <form method="post">
+        <label for="name">Subject Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="class_id">Class:</label>
+        <select id="class_id" name="class_id" required>
+            {% for class_id, class_name in classes %}
+                <option value="{{ class_id }}">{{ class_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="teacher_id">Teacher:</label>
+        <select id="teacher_id" name="teacher_id" required>
+            {% for teacher_id, teacher_name in teachers %}
+                <option value="{{ teacher_id }}">{{ teacher_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Add Subject</button>
+    </form>
+    <a href="/subjects">Back to Subjects</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Classes</title>
+</head>
+<body>
+    <h1>Classes</h1>
+    <a href="/add_class">Add Class</a>
+    <ul>
+        {% for class_item in classes %}
+        <li>
+            {{ class_item[1] }}
+            <a href="/edit_class/{{ class_item[0] }}">Edit</a>
+            <a href="/delete_class/{{ class_item[0] }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

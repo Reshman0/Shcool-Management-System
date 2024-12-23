@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add a New Student</h1>
+    <form action="/add_student" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br>
+
+        <label for="section">Section:</label>
+        <select name="section" id="section">
+            {% for section in sections %}
+                <option value="{{ section }}">{{ section }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="class_id">Class:</label>
+        <select name="class_id" id="class_id">
+            {% for class_id, class_name in classes %}
+                <option value="{{ class_id }}">{{ class_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="photo">Photo URL:</label>
+        <input type="text" name="photo" id="photo"><br>
+
+        <button type="submit">Add Student</button>
+    </form>
+    <a href="/students">Back to Students</a>
+</body>
+</html>

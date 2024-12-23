@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Rooms</title>
+</head>
+<body>
+    <h1>Rooms</h1>
+    <a href="/add_room">Add Room</a>
+    <ul>
+        {% for room in rooms %}
+        <li>
+            Room {{ room[1] }} (Capacity: {{ room[2] }}, Assigned Class: {{ room[3] or 'None' }})
+            <a href="/edit_room/{{ room[0] }}">Edit</a>
+            <a href="/delete_room/{{ room[0] }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

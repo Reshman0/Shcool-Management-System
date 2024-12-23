@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Room</title>
+</head>
+<body>
+    <h1>Edit Room</h1>
+    <form method="post">
+        <label for="room_number">Room Number:</label>
+        <input type="text" id="room_number" name="room_number" value="{{ room[1] }}" required><br>
+
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" value="{{ room[2] }}" required><br>
+
+        <label for="assigned_class">Assigned Class:</label>
+        <select id="assigned_class" name="assigned_class">
+            <option value="">None</option>
+            {% for class_id, class_name in classes %}
+                <option value="{{ class_id }}" {% if class_id == room[3] %}selected{% endif %}>
+                    {{ class_name }}
+                </option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Update Room</button>
+    </form>
+    <a href="/rooms">Back to Rooms</a>
+</body>
+</html>

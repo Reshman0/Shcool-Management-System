@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+<body>
+    <h1>Students</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student[1] }} (Roll No: {{ student[2] }}) - 
+                <a href="/edit_student/{{ student[0] }}">Edit</a> | 
+                <a href="/delete_student/{{ student[0] }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/add_student">Add New Student</a><br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

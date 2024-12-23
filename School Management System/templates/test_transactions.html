@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Transactions</title>
+</head>
+<body>
+    <h1>Test Concurrent Transactions</h1>
+    
+    <div>
+        <h3>Transaction 1: Add Student</h3>
+        <form action="/add_student" method="post" target="transaction1">
+            <label for="name1">Name:</label>
+            <input type="text" name="name" id="name1" required><br>
+            
+            <label for="section1">Section:</label>
+            <select name="section" id="section1">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select><br>
+            
+            <label for="class_id1">Class ID:</label>
+            <select name="class_id" id="class_id1">
+                {% for class in classes %}
+                <option value="{{ class[0] }}">{{ class[1] }}</option>
+                {% endfor %}
+            </select><br>
+            
+            <label for="photo1">Photo URL:</label>
+            <input type="text" name="photo" id="photo1"><br>
+            
+            <button type="submit">Submit Transaction 1</button>
+        </form>
+    </div>
+    
+    <div>
+        <h3>Transaction 2: Add Teacher</h3>
+        <form action="/add_teacher" method="post" target="transaction2">
+            <label for="name2">Name:</label>
+            <input type="text" name="name" id="name2" required><br>
+            
+            <label for="subject_id2">Subject ID:</label>
+            <select name="subject_id" id="subject_id2">
+                {% for subject in subjects %}
+                <option value="{{ subject[0] }}">{{ subject[1] }}</option>
+                {% endfor %}
+            </select><br>
+            
+            <label for="class_id2">Class ID:</label>
+            <select name="class_id" id="class_id2">
+                {% for class in classes %}
+                <option value="{{ class[0] }}">{{ class[1] }}</option>
+                {% endfor %}
+            </select><br>
+            
+            <label for="photo2">Photo URL:</label>
+            <input type="text" name="photo" id="photo2"><br>
+            
+            <button type="submit">Submit Transaction 2</button>
+        </form>
+    </div>
+    
+    <iframe name="transaction1" style="width: 100%; height: 300px; border: 1px solid #ccc;"></iframe>
+    <iframe name="transaction2" style="width: 100%; height: 300px; border: 1px solid #ccc;"></iframe>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Teacher</title>
+</head>
+<body>
+    <h1>Add Teacher</h1>
+    <form method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="subject_id">Subject:</label>
+        <select id="subject_id" name="subject_id" required>
+            {% for subject_id, subject_name in subjects %}
+                <option value="{{ subject_id }}">{{ subject_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="class_id">Class:</label>
+        <select id="class_id" name="class_id" required>
+            {% for class_id, class_name in classes %}
+                <option value="{{ class_id }}">{{ class_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="photo">Photo URL:</label>
+        <input type="text" id="photo" name="photo"><br>
+
+        <button type="submit">Add Teacher</button>
+    </form>
+    <a href="/teachers">Back to Teachers</a>
+</body>
+</html>

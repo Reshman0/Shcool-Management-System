@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Teachers</title>
+</head>
+<body>
+    <h1>Teachers</h1>
+    <a href="/add_teacher">Add Teacher</a>
+    <ul>
+        {% for teacher in teachers %}
+        <li>
+            {{ teacher[1] }} (Subject ID: {{ teacher[2] }}, Class ID: {{ teacher[3] }})
+            <a href="/edit_teacher/{{ teacher[0] }}">Edit</a>
+            <a href="/delete_teacher/{{ teacher[0] }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
